@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilmeSerieTable extends Migration
+class CreateFilmesSeriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFilmeSerieTable extends Migration
      */
     public function up()
     {
-        Schema::create('filme_serie', function (Blueprint $table) {
+        Schema::create('filmes_series', function (Blueprint $table) {
             $table->id('id_filme_serie');
             $table->enum('status',  ['ativo','inativo'])->default('ativo');
             $table->unsignedInteger('ano_lancamento');
             $table->foreignId('id_ator_diretor')
-            ->constrained('ator_diretor', 'id_ator_diretor');
+            ->constrained('atores_diretores', 'id_ator_diretor');
             $table->string('titulo_original', 255);
             $table->string('titulo_traduzido', 255);
             $table->text('sinopse');
@@ -35,6 +35,6 @@ class CreateFilmeSerieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filme_serie');
+        Schema::dropIfExists('filmes_series');
     }
 }

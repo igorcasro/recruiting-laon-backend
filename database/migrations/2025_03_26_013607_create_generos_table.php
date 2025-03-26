@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSerieTable extends Migration
+class CreateGenerosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateSerieTable extends Migration
      */
     public function up()
     {
-        Schema::create('serie', function (Blueprint $table) {
-            $table->foreignId('id_serie')
-            ->primary()
-            ->constrained('filme_serie', 'id_filme_serie')
-            ->onDelete('cascade');
+        Schema::create('generos', function (Blueprint $table) {
+            $table->id('id_genero');
+            $table->string('nome', 255);
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ class CreateSerieTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serie');
+        Schema::dropIfExists('generos');
     }
 }

@@ -13,10 +13,10 @@ class CreateAtoresDiretoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('ator_diretor', function (Blueprint $table) {
+        Schema::create('atores_diretores', function (Blueprint $table) {
             $table->id('id_ator_diretor');
             $table->string('nome', 255);
-            $table->boolean('diretor')->default(false);
+            $table->boolean('is_diretor')->default(false);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateAtoresDiretoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('atores');
+        Schema::dropIfExists('atores_diretores');
     }
 }

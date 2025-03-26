@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilmeSerieAtorTable extends Migration
+class CreateSeriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateFilmeSerieAtorTable extends Migration
      */
     public function up()
     {
-        Schema::create('filme_serie_ator', function (Blueprint $table) {
-            $table->foreignId('id_filme_serie')->constrained('filme_serie', 'id_filme_serie');
-            $table->foreignId('id_ator_diretor')->constrained('ator_diretor', 'id_ator_diretor');
+        Schema::create('series', function (Blueprint $table) {
+            $table->foreignId('id_serie')
+            ->primary()
+            ->constrained('filmes_series', 'id_filme_serie')
+            ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateFilmeSerieAtorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('filme_serie_ator');
+        Schema::dropIfExists('series');
     }
 }
