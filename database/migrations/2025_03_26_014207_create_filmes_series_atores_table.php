@@ -14,6 +14,7 @@ class CreateFilmesSeriesAtoresTable extends Migration
     public function up()
     {
         Schema::create('filmes_series_atores', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('id_filme_serie')->constrained('filmes_series', 'id_filme_serie');
             $table->foreignId('id_ator_diretor')->constrained('atores_diretores', 'id_ator_diretor');
             $table->timestamps();

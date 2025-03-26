@@ -5,15 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AtorDiretor extends Model
+class Genero extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'id_ator_diretor';
+    protected $primaryKey = 'id_genero';
 
     protected $fillable = [
         'nome',
-        'is_diretor',
     ];
 
     //Todo: Implement Eloquent ORM to stablish the table connections

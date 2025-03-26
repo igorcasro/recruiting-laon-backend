@@ -14,6 +14,8 @@ class CreateFilmesSeriesGenerosTable extends Migration
     public function up()
     {
         Schema::create('filmes_series_generos', function (Blueprint $table) {
+            // Inserting the column id to avoid conflict on the model for not having a PK
+            $table->id();
             $table->foreignId('id_filme_serie')->constrained('filmes_series', 'id_filme_serie');
             $table->foreignId('id_genero')->constrained('generos', 'id_genero');
             $table->timestamps();

@@ -24,6 +24,11 @@ class Usuario extends Model
         'remember_token',
     ];
 
+    protected $attributes = [
+        'is_admin' => false,
+        'status' => 'ativo'
+    ];
+
     // This code automatically converts data types when acessing the attributes
     // Needs to verify if its needed
     // protected $casts = [

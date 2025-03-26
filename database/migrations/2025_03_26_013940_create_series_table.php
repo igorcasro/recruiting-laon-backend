@@ -18,6 +18,7 @@ class CreateSeriesTable extends Migration
             ->primary()
             ->constrained('filmes_series', 'id_filme_serie')
             ->onDelete('cascade');
+            $table->unsignedInteger('numero_temporadas');
             $table->timestamps();
         });
     }
