@@ -15,7 +15,7 @@ class CreateUsuariosTable extends Migration
     {
         Schema::create('usuarios', function (Blueprint $table) {
             $table->id('id_usuario');
-            $table->boolean('id_admin')->default(false);
+            $table->boolean('is_admin')->default(false);
             $table->string('nome_completo', 255);
             $table->string('email', 255)->unique();
             $table->string('senha', 255);
