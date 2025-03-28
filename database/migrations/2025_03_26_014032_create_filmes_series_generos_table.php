@@ -15,7 +15,8 @@ class CreateFilmesSeriesGenerosTable extends Migration
     {
         Schema::create('filmes_series_generos', function (Blueprint $table) {
             // Inserting the column id to avoid conflict on the model for not having a PK
-            $table->id();
+            // It seems like Laravel can handle well with a table without PK, so, let's give it a try
+            // $table->id();
             $table->foreignId('id_filme_serie')->constrained('filmes_series', 'id_filme_serie');
             $table->foreignId('id_genero')->constrained('generos', 'id_genero');
             $table->timestamps();
