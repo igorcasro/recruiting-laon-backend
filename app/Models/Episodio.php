@@ -20,6 +20,9 @@ class Episodio extends Model
         'sinopse',
         'id_serie',
     ];
-
-    //Todo: Implement Eloquent ORM to stablish the table connections
+   
+    public function serie() {
+        // Probably I'll have to pass the 'id_serie' attribute, dont know
+        return $this->belongsTo(Serie::class, 'id_serie');
+    }
 }

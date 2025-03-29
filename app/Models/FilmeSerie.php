@@ -28,5 +28,20 @@ class FilmeSerie extends Model
         'tipo' => 'filme',
     ];
 
-    //Todo: Implement Eloquent ORM to stablish the table connections
+    public function generos() {
+        // Passing the arguments like this because I'm using a pivot table called 'filmes_series_generos'
+        return $this->belongsToMany(Genero::class, 'filmes_series_generos', 'id_genero', 'id_genero',);
+    }
+
+    public function serie() {
+        return $this->hasOne(Serie::class, 'id_serie', 'id_filme_serie');
+    }
+
+    public function atores() {
+        return $this->belongsToMany(AtorDiretor::class, 'filmes_series_atores', 'id_ator_diretor', 'id_ator_diretor');
+    }
+
+    public function diretor() {
+        return $this->belongsTo(AtorDiretor::class, 'id_ator_diretor', 'id_ator_diretor');
+    }
 }

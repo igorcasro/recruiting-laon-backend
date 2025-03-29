@@ -15,5 +15,7 @@ class Genero extends Model
         'nome',
     ];
 
-    //Todo: Implement Eloquent ORM to stablish the table connections
+    public function filmesSeries() {
+        return $this->belongsToMany(FilmeSerie::class, 'filmes_series_generos', 'id_filme_serie', 'id_filme_serie');
+    }
 }

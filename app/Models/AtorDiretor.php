@@ -16,5 +16,11 @@ class AtorDiretor extends Model
         'is_diretor',
     ];
 
-    //Todo: Implement Eloquent ORM to stablish the table connections
+    public function filmeSerie() {
+        $this->belongsToMany(FilmeSerie::class, 'filmes_series_atores', 'id_filme_serie', 'id_filme_serie');
+    }
+
+    public function filmesDirigidos() {
+        $this->hasMany(FilmeSerie::class, 'diretor');
+    }
 }

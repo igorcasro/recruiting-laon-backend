@@ -18,5 +18,11 @@ class Serie extends Model
         'numero_temporadas',
     ];
 
-    //Todo: Implement Eloquent ORM to stablish the table connections
+    public function filmeSerie() {
+        return $this->belongsTo(FilmeSerie::class, 'id_filme_serie', 'id_serie');
+    }
+
+    public function episodios() {
+        return $this->hasMany(Episodio::class, 'id_episodio');
+    }
 }
