@@ -13,7 +13,7 @@ class FilmeSerieController extends Controller
         }])->get();
     }
 
-    public function show($id_filme_serie) {
+    public function showTitulo($id_filme_serie) {
         return FilmeSerie::with(['generos', 'atores', 'episodios'=> function($query) {
             $query->where('tipo', 'serie');
         }])->findOrFail($id_filme_serie);
