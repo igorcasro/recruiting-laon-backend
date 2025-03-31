@@ -9,6 +9,7 @@ class Episodio extends Model
 {
     use HasFactory;
 
+    protected $table = 'episodios';
     protected $primaryKey = 'id_episodio';
 
     protected $fillable = [

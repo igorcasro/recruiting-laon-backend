@@ -9,8 +9,8 @@ class AtorDiretor extends Model
 {
     use HasFactory;
 
+    protected $table = 'atores_diretores';
     protected $primaryKey = 'id_ator_diretor';
-
     protected $fillable = [
         'nome',
         'is_diretor',

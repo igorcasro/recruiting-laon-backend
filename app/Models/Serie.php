@@ -9,6 +9,7 @@ class Serie extends Model
 {
     use HasFactory;
 
+    protected $table = 'series';
     //Since the id comes from the filmes_series table, the PK cannot autoincrement
     public $incrementing = false;
     protected $primaryKey = 'id_serie';
