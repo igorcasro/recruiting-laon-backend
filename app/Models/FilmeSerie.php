@@ -30,7 +30,7 @@ class FilmeSerie extends Model
 
     public function generos() {
         // Passing the arguments like this because I'm using a pivot table called 'filmes_series_generos'
-        return $this->belongsToMany(Genero::class, 'filmes_series_generos', 'id_genero', 'id_genero',);
+        return $this->belongsToMany(Genero::class, 'filmes_series_generos', 'id_filme_serie', 'id_genero')->withTimestamps();
     }
 
     public function serie() {
@@ -38,7 +38,7 @@ class FilmeSerie extends Model
     }
 
     public function atores() {
-        return $this->belongsToMany(AtorDiretor::class, 'filmes_series_atores', 'id_ator_diretor', 'id_ator_diretor');
+        return $this->belongsToMany(AtorDiretor::class, 'filmes_series_atores', 'id_filme_serie', 'id_ator_diretor')->withTimestamps();
     }
 
     public function diretor() {
