@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\FilmeSerieController;
 use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +23,4 @@ Route::post('/cadastrar', [UsuarioController::class, 'cadastrar']);
 Route::post('/login', [UsuarioController::class, 'login']);
 Route::post('/logout', [UsuarioController::class, 'sair']);
 
-// Rotas para Filmes/Series
-Route::get('/filmes-series', [FilmeSerieController::class, 'listar']);
-Route::get('/filmes-series/{id_filme_serie}', [FilmeSerieController::class, 'showTitulo']);
+
