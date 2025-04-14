@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FilmeSerieController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +16,22 @@ use App\Http\Controllers\FilmeSerieController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Rotas públicas
+Route::post('/cadastrar', [UsuarioController::class, 'cadastrar']);
+Route::post('/login', [UsuarioController::class, 'login']);
+
+
+// Rotas autenticadas
+Route::middleware('auth-sanctum')->group(function () {
+
+    Route::get('/user', function (Request $request) {
+        return $request->user();
+    });
+
+    Route::get('/filmes-series', [FilmeSerieController::class, 'listar']);
+    Route::get('/filmes-series/{id_filme_serie}', [FilmeSerieController::class, 'showTitulo']);
+
+    Route::post('/logout', [UsuarioController::class, 'sair']);
 });
 
 // Rotas para Filmes/Series
-Route::get('/filmes-series', [FilmeSerieController::class, 'listar']);
-Route::get('/filmes-series/{id_filme_serie}', [FilmeSerieController::class, 'showTitulo']);

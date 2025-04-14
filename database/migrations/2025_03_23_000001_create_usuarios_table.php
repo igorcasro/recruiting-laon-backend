@@ -21,6 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string('senha', 255);
             $table->enum('status', ['ativo', 'inativo'])->default('ativo');
             $table->timestamps();
+            $table->string('remember_token', 100);
         });
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\UsuarioController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +19,6 @@ Route::get('/', function () {
 });
 
 // Rotas de login
-Route::post('/cadastrar', [UsuarioController::class, 'cadastrar']);
-Route::post('/login', [UsuarioController::class, 'login']);
-Route::post('/logout', [UsuarioController::class, 'sair']);
+
 
 

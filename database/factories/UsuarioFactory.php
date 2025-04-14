@@ -23,6 +23,7 @@ class UsuarioFactory extends Factory
             'email' => $this->faker->unique()->safeEmail(),
             'senha' => Hash::make('123456'),
             'status' => 'ativo',
+            'remember_token' => 'yas',
         ];
     }
 }
